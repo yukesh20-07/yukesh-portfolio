@@ -1,3 +1,14 @@
+// Profile photo: the repository screenshot shows yukesh-photo.jpeg in the root.
+// If the photo is instead stored inside /assets, try that location automatically.
+const profilePhoto = document.querySelector(".profile-photo");
+if (profilePhoto) {
+  profilePhoto.addEventListener("error", () => {
+    if (profilePhoto.dataset.triedAssets === "true") return;
+    profilePhoto.dataset.triedAssets = "true";
+    profilePhoto.src = "./assets/yukesh-photo.jpeg";
+  });
+}
+
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
